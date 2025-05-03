@@ -3,10 +3,10 @@ import { PublicClientApplication } from "@azure/msal-browser";
 export default function LoginButton() {
   const msalInstance = new PublicClientApplication({
     auth: {
-      clientId: "45b0ef9e-ac60-48c8-9584-9fcbcc0081e9",
+      clientId: import.meta.env.VITE_CLIENT_ID,
       authority:
-        "https://login.microsoftonline.com/8a12ec8d-a0b2-401f-8170-68b3eb9792af",
-      redirectUri: "http://localhost:5173",
+        `https://login.microsoftonline.com/${import.meta.env.VITE_TENANT_ID}`,
+      redirectUri: import.meta.env.VITE_REDIRECT_URI,
     },
   });
   const handleLogin = async () => {
